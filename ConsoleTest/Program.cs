@@ -13,7 +13,7 @@ namespace ConsoleTest
         {
             Console.Title = nameof(ConsoleTest);
 
-            Console.WriteLine("Press ENTER to read from WebApi");
+            Console.WriteLine("Press any key to read from WebApi");
             Console.ReadLine();
 
             TestValues();   // Works :)
