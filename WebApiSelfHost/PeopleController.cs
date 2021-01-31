@@ -12,6 +12,7 @@ namespace WebApiSelfHost
     class PeopleController : ApiController
     {
         // GET api/values 
+        // http://localhost:9000/api/people/
         public IEnumerable<Person> Get()
         {
             return GlobalData.People;

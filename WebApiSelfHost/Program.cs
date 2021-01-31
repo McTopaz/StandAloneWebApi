@@ -16,23 +16,32 @@ namespace WebApiSelfHost
     {
         static void Main()
         {
-            var baseAddress = "http://localhost:9000/";
+            Console.Title = nameof(WebApiSelfHost);
             GlobalData.Load();
+            
+            var baseAddress = "http://localhost:9000/";
+            WebApp.Start<StartUp>(url: baseAddress);
 
-            using (WebApp.Start<StartUp>(url: baseAddress))
-            {
-                var client = new HttpClient();
+            Console.WriteLine("WebAPI service running");
+            Console.WriteLine("Press any key to exit");
+            Console.ReadLine();
+
+            //using (WebApp.Start<StartUp>(url: baseAddress))
+            //{
+            //    var client = new HttpClient();
                 
-                var response = client.GetAsync(baseAddress + "api/values").Result;
-                Console.WriteLine(response);
-                Console.WriteLine(response.Content.ReadAsStringAsync().Result);
+            //    // This work!
+            //    var response = client.GetAsync(baseAddress + "api/values").Result;
+            //    Console.WriteLine(response);
+            //    Console.WriteLine(response.Content.ReadAsStringAsync().Result);
 
-                var r = client.GetAsync(baseAddress + "api/people").Result;
-                Console.WriteLine(r);
-                Console.WriteLine(r.Content.ReadAsStringAsync().Result);
+            //    // This don't work!
+            //    var r = client.GetAsync(baseAddress + "api/people").Result;
+            //    Console.WriteLine(r);
+            //    Console.WriteLine(r.Content.ReadAsStringAsync().Result);
 
-                Console.ReadLine();
-            }
+            //    Console.ReadLine();
+            //}
         }
     }
 }

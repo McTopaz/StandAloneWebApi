@@ -10,6 +10,7 @@ namespace WebApiSelfHost
     public class ValuesController : ApiController
     {
         // GET api/values 
+        // http://localhost:9000/api/values/
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
