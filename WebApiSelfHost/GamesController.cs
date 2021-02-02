@@ -1,25 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Http;
-
-using WebApiSelfHost.Models;
 
 namespace WebApiSelfHost
 {
-    public class PeopleController : ApiController
+    [RoutePrefix("game")]
+    public class GamesController : ApiController
     {
+
         // GET api/values 
-        // http://localhost:9000/api/people/
-        public IEnumerable<Person> Get()
+        // http://localhost:9000/api/values/
+        public IEnumerable<string> Get()
         {
-            return GlobalData.People;
+            return new string[] { "Mario", "Luigi", "Bowser" };
         }
 
         // GET api/values/5 
-        public Person Get(Guid id)
+        public string Get(int id)
         {
-            return GlobalData.People.Where(p => p.Id == id).FirstOrDefault();
+            return "Mario " + id;
         }
 
         // POST api/values 

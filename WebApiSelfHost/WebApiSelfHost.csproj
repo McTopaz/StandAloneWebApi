@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GamesController.cs" />
     <Compile Include="GlobalData.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="PeopleController.cs" />

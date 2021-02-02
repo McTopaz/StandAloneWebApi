@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebApiSelfHost.Models
 {
-    class Person
+    public class Person
     {
         public Guid Id { get; private set; }
         public string Name { get; set; }
