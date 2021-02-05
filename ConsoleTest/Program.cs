@@ -5,26 +5,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 
+using Entities.Models.Library;
+
+using Newtonsoft.Json;
+
 namespace ConsoleTest
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             Console.Title = nameof(ConsoleTest);
 
-            Console.WriteLine("Press any key to read from WebApi");
+            Console.Write("Press any key to read from WebApi");
             Console.ReadLine();
 
-            TestValues();   // Works :)
-            TestPeople();   // Fails :(
+            await Library.Run();
 
-            Console.WriteLine("Press any key to exit");
+            Console.Write("Press any key to exit");
             Console.ReadLine();
         }
 
         /// <summary>
-        /// Read GET from the Valuescontroller.
+        /// Read GET from the ValuesController.
         /// </summary>
         static void TestValues()
         {

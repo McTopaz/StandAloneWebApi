@@ -67,17 +67,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\LibraryController.cs" />
     <Compile Include="GlobalData.cs" />
     <Compile Include="Models\Person.cs" />
-    <Compile Include="PeopleController.cs" />
+    <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StartUp.cs" />
-    <Compile Include="ValuesController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{76bd32bc-4fb4-4dcb-bb25-b1d0dd31f3a3}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

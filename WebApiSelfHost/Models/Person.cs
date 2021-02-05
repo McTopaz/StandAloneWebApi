@@ -6,15 +6,10 @@ using System.Threading.Tasks;
 
 namespace WebApiSelfHost.Models
 {
-    class Person
+    public class Person
     {
-        public Guid Id { get; private set; }
+        public Guid Id { get; } = Guid.NewGuid();
         public string Name { get; set; }
         public int Age { get; set; }
-
-        public Person()
-        {
-            Id = Guid.NewGuid();
-        }
     }
 }

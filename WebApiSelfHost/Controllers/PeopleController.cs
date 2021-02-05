@@ -7,9 +7,9 @@ using System.Web.Http;
 
 using WebApiSelfHost.Models;
 
-namespace WebApiSelfHost
+namespace WebApiSelfHost.Controllers
 {
-    class PeopleController : ApiController
+    public class PeopleController : ApiController
     {
         // GET api/values 
         // http://localhost:9000/api/people/

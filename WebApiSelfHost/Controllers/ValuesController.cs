@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace WebApiSelfHost
+namespace WebApiSelfHost.Controllers
 {
     public class ValuesController : ApiController
     {

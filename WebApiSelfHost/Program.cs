@@ -23,7 +23,8 @@ namespace WebApiSelfHost
             WebApp.Start<StartUp>(url: baseAddress);
 
             Console.WriteLine("WebAPI service running");
-            Console.WriteLine("Press any key to exit");
+            Console.Write("Press any key to exit");
+            
             Console.ReadLine();
 
             //using (WebApp.Start<StartUp>(url: baseAddress))
