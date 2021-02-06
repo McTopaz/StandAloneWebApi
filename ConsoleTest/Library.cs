@@ -62,7 +62,7 @@ namespace ConsoleTest
             for (int i = 0; i < books.Count(); i++)
             {
                 var book = books.ElementAt(i);
-                Console.WriteLine(BookLine(i + 1, book.Title, book.Author, book.Publisher));
+                Console.WriteLine(BookLine(i + 1, book));
             }
 
             Console.WriteLine("+----------------------------------------------------------------------------------------+");
@@ -78,13 +78,14 @@ namespace ConsoleTest
             return $"| {i} | {t} | {a} | {p} | ";
         }
 
-        static string BookLine(int index, string title, string author, string publisher, int columnLength = 25)
+        static string BookLine(int index, IBook book, int columnLength = 25)
         {
             var i = index.ToString().PadLeft(2);
-            var t = title.PadRight(columnLength);
-            var a = author.PadRight(columnLength);
-            var p = publisher.PadRight(columnLength);
-            return $"| {i} | {t} | {a} | {p} | ";
+            var t = book.Title.PadRight(columnLength);
+            var a = book.Author.PadRight(columnLength);
+            var p = book.Publisher.PadRight(columnLength);
+            var g = book.Id.ToString().Substring(0, 6);
+            return $"| {i} | {t} | {a} | {p} | {g}";
         }
 
         static string HandleInput(int numberOfBooks)
