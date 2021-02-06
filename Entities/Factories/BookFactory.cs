@@ -26,7 +26,7 @@ namespace Entities.Factories
 
                 for (int j = 0; j < chapter.Pages; j++)
                 {
-                    var page = new Page { Number = i + 1, Content = RandomPageContent(chapter.Rows) };
+                    var page = new Page { Number = j + 1, Content = RandomPageContent(chapter.Rows) };
                     pages.Add(page);
                 }
 
@@ -44,7 +44,7 @@ namespace Entities.Factories
         static IReadOnlyList<string> RandomPageContent(int rows)
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            const int length = 16;
+            const int length = 32;
             var rnd = new Random();
 
             var content = new List<string>();

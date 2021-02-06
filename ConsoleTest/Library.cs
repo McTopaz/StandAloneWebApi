@@ -88,12 +88,12 @@ namespace ConsoleTest
             return $"| {i} | {t} | {a} | {p} | {g}";
         }
 
-        static string HandleInput(int numberOfBooks)
+        static string HandleInput(int highestChoice)
         {
             while (true)
             {
                 var input = TakeInput();
-                var valid = IsValidInput(input, LowestChoice, numberOfBooks);
+                var valid = IsValidInput(input, LowestChoice, highestChoice);
 
                 if (valid) return input;
             }
@@ -135,29 +135,57 @@ namespace ConsoleTest
             }
         }
 
-        static void ReadBook(string input, IEnumerable<Guid> ids)
+        static async void ReadBook(string input, IEnumerable<Guid> ids)
         {
             var index = int.Parse(input) - 1;
             var id = ids.ElementAt(index);
-            ReadChapters(id);
-        }
 
-        static void ReadChapters(Guid id)
-        {
             while (true)
             {
-                var chapter = GetChapter(id);
+                var chapter = await GetChapter(id);
+                DisplayChapter(chapter);
 
+                if (chapter.LastChapter) break;
+
+                Console.WriteLine("Read one more chapter?");
+                input = HandleInput(2);
+                var valid = IsValidInput(input, LowestChoice, 2);
             }
+            Console.WriteLine("asdf");
         }
 
-        static async Task<IEnumerable<IChapter>> GetChapter(Guid id)
+        static async Task<IChapter> GetChapter(Guid id)
         {
             var url = $"http://localhost:9000/api/book/{id}";
             var client = new HttpClient();
             var response = await client.GetAsync(url);
             var json = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<IEnumerable<Chapter>>(json);
+            return JsonConvert.DeserializeObject<Chapter>(json);
+        }
+
+        static void DisplayChapter(IChapter chapter)
+        {
+            Console.WriteLine();
+            Console.WriteLine($"Title: {chapter.Title}");
+            Console.WriteLine();
+
+            foreach (var page in chapter.Pages)
+            {
+                DisplayPage(page);
+            }
+        }
+
+        static void DisplayPage(IPage page)
+        {
+            Console.WriteLine($"Page number: {page.Number}");
+            Console.WriteLine();
+
+            foreach (var line in page.Content)
+            {
+                Console.WriteLine(line);
+            }
+
+            Console.WriteLine();
         }
     }
 }

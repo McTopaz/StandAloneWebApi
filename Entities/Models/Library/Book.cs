@@ -8,18 +8,18 @@ namespace Entities.Models.Library
 {
     public class Book : IBook
     {
-        const int AccessTime = 500; // ms
+        const int AccessTime = 100; // ms
 
-        public Guid Id { get; } = Guid.NewGuid();
+        public Guid Id { get; set; } = Guid.NewGuid();
         public string Title { get; set; }
         public string Author { get; set; }
         public string Publisher { get; set; }
-        public int CurrentChapter { get; private set; } = 0;
+        public int Bookmark { get; private set; } = 0;
         List<Chapter> Chapters { get; } = new List<Chapter>();
 
         public void StartFromBeginning()
         {
-            CurrentChapter = 0;
+            Bookmark = 0;
         }
 
         public void AddChapter(Chapter chapter)
@@ -29,8 +29,8 @@ namespace Entities.Models.Library
 
         public Chapter GetCurrentChapter()
         {
-            var current = Chapters[CurrentChapter];
-            CurrentChapter = CurrentChapter < Chapters.Count ? CurrentChapter++ : 0;
+            var current = Chapters[Bookmark];
+            Bookmark = Bookmark < Chapters.Count ? ++Bookmark : 0;
             return current;
         }
 

@@ -15,6 +15,8 @@ namespace WebApiSelfHost
         public static List<Person> People { get; } = new List<Person>();
         public static Library Library { get; } = new Library();
 
+        public static Foo Foo { get; } = new Foo();
+
         public static void Load()
         {
             SetupPeople();
@@ -46,6 +48,12 @@ namespace WebApiSelfHost
             Library.Books.Add(b1);
             Library.Books.Add(b2);
         }
+    }
+
+    public class Foo
+    {
+        public Guid Guid1 { get; } = Guid.NewGuid();
+        public Guid Guid2 { get; } = Guid.NewGuid();
     }
 }
 
