@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\LibraryController.cs" />
     <Compile Include="GlobalData.cs" />
     <Compile Include="Models\Person.cs" />

@@ -16,14 +16,7 @@ namespace ConsoleTest
         static async Task Main(string[] args)
         {
             Console.Title = nameof(ConsoleTest);
-
-            Console.Write("Press any key to read from WebApi");
-            Console.ReadLine();
-
             await Library.Run();
-
-            Console.Write("Press any key to exit");
-            Console.ReadLine();
         }
 
         /// <summary>

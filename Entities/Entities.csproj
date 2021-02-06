@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factories\BookFactory.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Models\Library\Book.cs" />
     <Compile Include="Models\Library\Chapter.cs" />
     <Compile Include="Models\Library\Library.cs" />
